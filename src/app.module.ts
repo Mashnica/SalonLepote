@@ -1,3 +1,4 @@
+import { ZaposleniController } from './controllers/api/zaposleni.contoller';
 import { Uslugesalona } from './../entities/uslugesalona.entity';
 import { Tretmanlica } from './../entities/tretmanlica.entity';
 import { Termin } from './../entities/termin.entity';
@@ -9,7 +10,7 @@ import { Klijent } from './../entities/klijent.entity';
 import { Zaposleni } from './../entities/zaposleni.entity';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
+import { AppController } from './controllers/app.controller';
 import  {DatabaseConfiguration} from 'config/database.configuration'
 import { ZaposleniService } from './services/zaposleni/zaposleni.service';
 
@@ -39,7 +40,10 @@ import { ZaposleniService } from './services/zaposleni/zaposleni.service';
     }),
     TypeOrmModule.forFeature([Zaposleni])
   ],
-  controllers: [AppController],
+  controllers: [
+    AppController,
+    ZaposleniController
+    ],
   providers: [ZaposleniService],
 })
 export class AppModule {}

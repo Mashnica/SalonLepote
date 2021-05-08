@@ -1,5 +1,5 @@
-import { ZaposleniService } from './services/zaposleni/zaposleni.service';
-import { Zaposleni } from './../entities/zaposleni.entity';
+import { ZaposleniService } from '../services/zaposleni/zaposleni.service';
+import { Zaposleni } from '../../entities/zaposleni.entity';
 import { Controller, Get } from '@nestjs/common';
 
 
@@ -16,10 +16,6 @@ export class AppController {
   }
 
 
-  @Get('api/zaposleni')   //http:localhost:3000/api/zaposleni/
-  getAllZaposleni():Promise<Zaposleni[]>{
-      
-   return  this.zaposleniService.getAll();
-  }
+ 
 
 }
