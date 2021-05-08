@@ -12,7 +12,7 @@ export class AppController {
 
   @Get() //http://localhost:3000
   getHello(): string {
-    return 'Hello World!';
+    return 'Home Page!!';
   }
 
 

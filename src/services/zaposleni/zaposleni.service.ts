@@ -19,4 +19,8 @@ export class ZaposleniService {
         return this.zaposleni.findOne(id);
 
     }
+
+   //add
+   //editById
+   //deleteById
 }
