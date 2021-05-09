@@ -1,3 +1,5 @@
+import { AuthMiddleware } from './middlewares/auth.middleware';
+import { AuthController } from './controllers/api/auth.controller';
 import { TerminController } from './controllers/api/termin.controller';
 import { TerminService } from './services/termin/termin.service';
 import { UslugeSalonaService } from './services/uslugeSalona/uslugeSalona.service';
@@ -24,7 +26,7 @@ import { Masaza } from './../entities/masaza.entity';
 import { Manikir } from './../entities/manikir.entity';
 import { Klijent } from './../entities/klijent.entity';
 import { Zaposleni } from './../entities/zaposleni.entity';
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module ,NestModule} from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './controllers/app.controller';
 import  {DatabaseConfiguration} from 'config/database.configuration'
@@ -77,7 +79,8 @@ import { ZaposleniService } from './services/zaposleni/zaposleni.service';
     PedikirController,
     TretmanLicaController,
     UslugeSalonaController,
-    TerminController
+    TerminController,
+    AuthController
     ],
   providers: [ 
     ZaposleniService,
@@ -90,5 +93,19 @@ import { ZaposleniService } from './services/zaposleni/zaposleni.service';
     UslugeSalonaService,
     TerminService
   ],
+  exports:[
+    ZaposleniService,
+
+  ]
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    //primeni middleware
+    consumer
+    .apply(AuthMiddleware)
+    .exclude('auth/*','assets/*','uploads/*') // dodati rute
+    .forRoutes('api/*');
+  }
+
+
+}

@@ -1,3 +1,5 @@
+import { ApiResponse } from './../../misc/api.response.class';
+import { AddTretmanLicaDto } from './../../dtos/tretmanLica/add.tretmanlica.dto';
 import { Tretmanlica } from './../../../entities/tretmanlica.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable } from "@nestjs/common";
@@ -10,4 +12,25 @@ export class TretmanLicaService extends TypeOrmCrudService<Tretmanlica>{
    ){
        super(tretmanLica);
    }
+
+   createTretmanLica(data: AddTretmanLicaDto): Promise <Tretmanlica | ApiResponse>{
+    let newTretmanLica: Tretmanlica = new Tretmanlica();
+    newTretmanLica.vrstaTretmanaLica=data.VrstaTretmanaLica;
+    newTretmanLica.vremeTrajTretmanaLica=data.VremeTrajTretmanaLica;
+    newTretmanLica.cenaTretmanaLica=data.CenaTretmanaLica;
+  
+
+    return new Promise ((resolve)=>{
+     this.tretmanLica.save(newTretmanLica)
+     .then(data=> resolve(data))
+     .catch(error =>{
+         const response:ApiResponse = new ApiResponse("error",-1001);
+
+         resolve(response);
+
+     });
+
+ });
+
+}
 }

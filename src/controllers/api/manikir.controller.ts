@@ -1,6 +1,7 @@
+import { AddManikirDto } from './../../dtos/manikir/add.manikir.dto';
 import { ManikirService } from '../../services/manikir/manikir.service';
 import { Manikir } from './../../../entities/manikir.entity';
-import { Controller } from "@nestjs/common";
+import { Body, Controller, Post } from "@nestjs/common";
 import {Crud} from "@nestjsx/crud";
 
 
@@ -21,7 +22,10 @@ import {Crud} from "@nestjsx/crud";
 export class ManikirController{
   
       constructor(public service : ManikirService) { }
-      
-  
+      @Post('createManikir') //POST http://localhost:3000/api/manikir/createManikir/
+      createManikir(@Body()data: AddManikirDto){
 
+        return this.service.createManikir(data);
+  
+      }
 }

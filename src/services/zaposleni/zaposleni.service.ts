@@ -1,3 +1,4 @@
+
 import { ApiResponse } from './../../misc/api.response.class';
 import { EditZaposleniDto } from './../../dtos/zaposleni/edit.zaposleni.dto';
 import { AddZaposleniDto } from './../../dtos/zaposleni/add.zaposleni.dto';
@@ -19,7 +20,17 @@ export class ZaposleniService {
      getAll(): Promise<Zaposleni[]>{ //niz zaposleni koji su administratori
         return this.zaposleni.find();
      }
+     async getByUsername(korisnickoIme2:string): Promise<Zaposleni | null> {
+           const admin= await this.zaposleni.findOne({
+               korisnickoIme:korisnickoIme2
+           });
 
+           if(admin){
+                return admin;
+
+           }
+           return null;
+        }
 
     getById(id:number): Promise<Zaposleni> {
         return this.zaposleni.findOne(id);
@@ -28,7 +39,8 @@ export class ZaposleniService {
 
    //add
    add(data : AddZaposleniDto): Promise<Zaposleni | ApiResponse>{
-     
+        //DTO u model
+        //SHA512 hashovanje lozinke
 
        const lozinka=crypto.createHash('sha512');
        lozinka.update(data.password);
@@ -54,8 +66,7 @@ export class ZaposleniService {
        });
 
 
-        //DTO u model
-        //SHA512 hashovanje lozinke
+        
 
 
 
@@ -76,12 +87,12 @@ export class ZaposleniService {
 
 
      }
-     const crypto =require('crypto');
+     /*const crypto =require('crypto');
      const lozinka=crypto.createHash('sha512');
      lozinka.update(data.password);
      const passwordHashString= lozinka.digest('hex').toUpperCase();
 
-     zaposleni.lozinka = passwordHashString;
+     zaposleni.lozinka = passwordHashString;*/
 
      return this.zaposleni.save(zaposleni);
 

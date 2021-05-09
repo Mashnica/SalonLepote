@@ -1,6 +1,7 @@
+import { AddTretmanLicaDto } from './../../dtos/tretmanLica/add.tretmanlica.dto';
 import { TretmanLicaService } from './../../services/tretmanLica/tretmanLica.service';
 import { Tretmanlica } from './../../../entities/tretmanlica.entity';
-import { Controller } from "@nestjs/common";
+import { Body, Controller, Post } from "@nestjs/common";
 import {Crud} from "@nestjsx/crud";
 
 
@@ -22,6 +23,10 @@ export class TretmanLicaController{
   
       constructor(public service : TretmanLicaService) { }
       
-  
+      @Post('createTretmanLica') //POST http://localhost:3000/api/tretmanLica/createTretmanLica/
+      createTretmanLica(@Body()data: AddTretmanLicaDto){
+
+        return this.service.createTretmanLica(data);
+      }
 
 }

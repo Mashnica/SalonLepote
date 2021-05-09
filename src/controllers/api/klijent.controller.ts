@@ -1,6 +1,7 @@
+import { AddKlijentDto } from './../../dtos/klijent/add.klijent.dto';
 import { KlijentService } from './../../services/klijent/klijent.service';
 import { Klijent } from './../../../entities/klijent.entity';
-import { Controller } from "@nestjs/common";
+import { Body, Controller, Post } from "@nestjs/common";
 import {Crud} from "@nestjsx/crud";
 
 
@@ -21,6 +22,13 @@ import {Crud} from "@nestjsx/crud";
 export class KlijentController{
   
       constructor(public service : KlijentService) { }
+
+       @Post('createKlijent') //POST http://localhost:3000/api/klijenti/createKlijent/
+      createFullKlijent(@Body()data: AddKlijentDto){
+
+        return this.service.createFullKlijent(data);
+
+      }
       
   
 
