@@ -1,10 +1,11 @@
+import { ApiResponse } from './../../misc/api.response.class';
 import { EditZaposleniDto } from './../../dtos/zaposleni/edit.zaposleni.dto';
 import { AddZaposleniDto } from './../../dtos/zaposleni/add.zaposleni.dto';
 import { Zaposleni } from './../../../entities/zaposleni.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-   
+ import * as crypto from 'crypto';  
 
 
 
@@ -26,12 +27,12 @@ export class ZaposleniService {
     }
 
    //add
-   add(data : AddZaposleniDto): Promise<Zaposleni>{
-       const crypto =require('crypto');
+   add(data : AddZaposleniDto): Promise<Zaposleni | ApiResponse>{
+     
 
        const lozinka=crypto.createHash('sha512');
        lozinka.update(data.password);
-       const passwordHashString= lozinka.digest('hex').toUppeCase();
+       const passwordHashString= lozinka.digest('hex').toUpperCase();
         
        let newZaposleni: Zaposleni = new Zaposleni();
        newZaposleni.imeZaposlenog=data.imeZaposlenog;
@@ -40,7 +41,17 @@ export class ZaposleniService {
        newZaposleni.korisnickoIme=data.korisnickoIme;
        newZaposleni.lozinka=data.password;
 
-       return this.zaposleni.save(newZaposleni);
+       return new Promise ((resolve)=>{
+           this.zaposleni.save(newZaposleni)
+           .then(data=> resolve(data))
+           .catch(error =>{
+               const response:ApiResponse = new ApiResponse("error",-1001);
+
+               resolve(response);
+
+           });
+
+       });
 
 
         //DTO u model
@@ -53,13 +64,22 @@ export class ZaposleniService {
 
 
    //editById
-    async editById(id:number,data:EditZaposleniDto): Promise<Zaposleni>{
+    async editById(id:number,data:EditZaposleniDto): Promise<Zaposleni | ApiResponse>{
        
      let zaposleni:Zaposleni = await this.zaposleni.findOne(id);
+     if(zaposleni == undefined){
+           return new Promise((resolve)=>{
+
+             resolve(new ApiResponse("error",-1002));
+
+           });
+
+
+     }
      const crypto =require('crypto');
      const lozinka=crypto.createHash('sha512');
      lozinka.update(data.password);
-     const passwordHashString= lozinka.digest('hex').toUppeCase();
+     const passwordHashString= lozinka.digest('hex').toUpperCase();
 
      zaposleni.lozinka = passwordHashString;
 
