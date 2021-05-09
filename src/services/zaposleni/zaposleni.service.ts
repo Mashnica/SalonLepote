@@ -41,7 +41,7 @@ export class ZaposleniService {
    add(data : AddZaposleniDto): Promise<Zaposleni | ApiResponse>{
         //DTO u model
         //SHA512 hashovanje lozinke
-
+        //hasovanje lozinke
        const lozinka=crypto.createHash('sha512');
        lozinka.update(data.password);
        const passwordHashString= lozinka.digest('hex').toUpperCase();

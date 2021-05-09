@@ -1,3 +1,5 @@
+import { KlijentService } from './../../services/klijent/klijent.service';
+import { KlijentRegistrationDto } from './../../dtos/klijent/klijent.register.dto';
 import { jwtSecret } from './../../../config/jwt.secret';
 import { JwtDataZaposleniDto } from './../../dtos/zaposleni/jwt.data.zaposleni.dto';
 import { LoginInfoZaposleniDto } from './../../dtos/zaposleni/login.info.zaposleni.dto';
@@ -8,7 +10,7 @@ import {Request} from "express";
 import {resolve} from "dns";
 import * as crypto from 'crypto';
 import * as jwt from 'jsonwebtoken';
-import {Controller,Post,Body, Req } from '@nestjs/common';
+import {Controller,Post,Body, Req, Put } from '@nestjs/common';
 
 
 
@@ -16,7 +18,9 @@ import {Controller,Post,Body, Req } from '@nestjs/common';
 @Controller('auth')
 export class AuthController{
 
-    constructor(public zaposleniService: ZaposleniService){}
+    constructor(public zaposleniService: ZaposleniService,
+               public klijentService: KlijentService
+        ){}
 
      @Post('login') //http://localhost:300/auth/login
     async doLogin(@Body() data :LoginZaposleniDto,@Req() req: Request): Promise<LoginInfoZaposleniDto | ApiResponse>{
@@ -67,6 +71,14 @@ export class AuthController{
         );
 
         return new Promise(resolve => resolve(responseObject));
+
+
+    }
+
+    @Put('klijent/register') // PUT http://localhost:3000/auth/klijent/register/
+    async klijentRegister(@Body() data:KlijentRegistrationDto){
+
+        return await this.klijentService.register(data);
 
 
     }
