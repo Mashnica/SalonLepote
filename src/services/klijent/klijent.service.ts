@@ -73,7 +73,23 @@ export class KlijentService extends TypeOrmCrudService<Klijent>{
 
     });
    
-}
+    }
+    async getById(id){
+        return await this.klijent.findOne(id);
+
+    }
+    async getByUsername(korisnickoIme2:string): Promise<Klijent | null> {
+        const klijent = await this.klijent.findOne({
+            usernameKlijent:korisnickoIme2
+        });
+
+        if(klijent){
+             return klijent;
+
+        }
+        return null;
+     }
+
 
 
 

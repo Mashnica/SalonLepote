@@ -95,6 +95,7 @@ import { ZaposleniService } from './services/zaposleni/zaposleni.service';
   ],
   exports:[
     ZaposleniService,
+    KlijentService
 
   ]
 })
