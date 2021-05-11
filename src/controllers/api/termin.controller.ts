@@ -1,8 +1,10 @@
+import { RoleCheckedGuard } from './../../misc/role.checker.quard';
 import { AddTerminDto } from './../../dtos/termin/add.termin.dto';
 import { TerminService } from './../../services/termin/termin.service';
 import { Termin } from './../../../entities/termin.entity';
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Post, UseGuards } from "@nestjs/common";
 import {Crud} from "@nestjsx/crud";
+import { AllowToRoles } from 'src/misc/allow.to.roles.descriptor';
 
 
 
@@ -28,7 +30,53 @@ import {Crud} from "@nestjsx/crud";
            }
                
         }
-   }
+   },
+   routes:{
+    only:[
+        "createOneBase",
+        "createManyBase",
+        "updateOneBase",
+        "getManyBase",
+        "getOneBase",
+         //replace i delete ne
+    ],
+    createOneBase: {
+        decorators:[
+            UseGuards(RoleCheckedGuard),
+            AllowToRoles('zaposleni'),
+        ],
+
+    },
+    createManyBase: {
+        decorators:[
+            UseGuards(RoleCheckedGuard),
+            AllowToRoles('zaposleni'),
+        ],
+        
+    },
+    updateOneBase: {
+        decorators:[
+            UseGuards(RoleCheckedGuard),
+            AllowToRoles('zaposleni'),
+        ],
+        
+    },
+    getManyBase: {
+        decorators:[
+            UseGuards(RoleCheckedGuard),
+            AllowToRoles('zaposleni','klijent'),
+        ],
+        
+    },
+    getOneBase: {
+        decorators:[
+            UseGuards(RoleCheckedGuard),
+            AllowToRoles('zaposleni','klijent'),
+        ],
+        
+    }
+
+}
 })
 export class TerminController{
   

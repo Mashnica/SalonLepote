@@ -6,7 +6,7 @@ import { EditZaposleniDto } from './../../dtos/zaposleni/edit.zaposleni.dto';
 import { AddZaposleniDto } from './../../dtos/zaposleni/add.zaposleni.dto';
 import { Zaposleni } from './../../../entities/zaposleni.entity';
 import { ZaposleniService } from './../../services/zaposleni/zaposleni.service';
-import { Body, Controller, Delete, Get, Param, Post, Put, SetMetadata, UseGuards } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, SetMetadata, UseGuards } from "@nestjs/common";
 
 @Controller('api/zaposleni')
 export class ZaposleniController{
@@ -43,16 +43,16 @@ export class ZaposleniController{
            
       }
 
-      //dodavanje novog zaposlenog PUT  //http:localhost:3000/api/zaposleni/
-      @Put()
+      //dodavanje novog zaposlenog POST //http:localhost:3000/api/zaposleni/
+      @Post()
       @UseGuards(RoleCheckedGuard)
       @AllowToRoles('zaposleni')
       add(@Body() data: AddZaposleniDto): Promise<Zaposleni | ApiResponse>{
             return this.zaposleniService.add(data);
 
       }
-      //editovanje info o zaposlenom POST //http:localhost:3000/api/zaposleni/4
-      @Post(':id')
+      //editovanje info o zaposlenom PATCH //http:localhost:3000/api/zaposleni/4
+      @Patch(':id')
       @UseGuards(RoleCheckedGuard)
       @AllowToRoles('zaposleni')
       edit( @Param('id') id :number,@Body() data:EditZaposleniDto): Promise<Zaposleni| ApiResponse>{
@@ -60,7 +60,8 @@ export class ZaposleniController{
            return this.zaposleniService.editById(id,data);
 
       }
-      //delete
+      //delete zaposlenog
+      
 
       
 }
