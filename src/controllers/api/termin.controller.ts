@@ -83,7 +83,9 @@ export class TerminController{
       constructor(public service : TerminService) { }
       
       @Post('createTermin') //POST http://localhost:3000/api/termin/createTermin/
-      createTermin(@Body()data: AddTerminDto){
+      @UseGuards(RoleCheckedGuard)
+      @AllowToRoles('klijent')
+      async createTermin(@Body()data: AddTerminDto){
 
         return this.service.createTermin(data);
       }

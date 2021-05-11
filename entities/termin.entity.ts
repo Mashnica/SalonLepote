@@ -8,6 +8,7 @@ import {
 } from "typeorm";
 import { Zaposleni } from "./zaposleni.entity";
 import { Uslugesalona } from "./uslugesalona.entity";
+import * as Validator from 'class-validator';
 
 @Index("uslugeSalonaID", ["uslugeSalonaId"], {})
 @Index("zaposleniID", ["zaposleniId"], {})
@@ -26,6 +27,12 @@ export class Termin {
   datumTermina: Date;
 
   @Column("int", { name: "Cena" })
+  @Validator.IsEmpty()
+  @Validator.IsNumber({
+    allowInfinity:false,
+    allowNaN: false,
+  })
+  @Validator.IsPositive()
   cena: number;
 
   @Column("int", { name: "zaposleniID", nullable: true })

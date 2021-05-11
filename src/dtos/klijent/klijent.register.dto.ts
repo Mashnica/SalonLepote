@@ -1,3 +1,5 @@
+import * as Validator from 'class-validator';
+
 export class KlijentRegistrationDto{
     klijentID :number;
     imeKlijent :string;
@@ -5,7 +7,11 @@ export class KlijentRegistrationDto{
     jmbgKlijent :string;
     adresaKlijent :string;
     kontaktKlijent :string;
+    @Validator.IsNotEmpty()
+    @Validator.IsString()
     usernameKlijent :string;
+    @Validator.IsNotEmpty()
+    @Validator.IsString()
     lozinkaKlijent :string;
 
 

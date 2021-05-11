@@ -5,10 +5,19 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable } from "@nestjs/common";
 import {TypeOrmCrudService} from "@nestjsx/crud-typeorm";
 import { Repository } from "typeorm";
+import { Uslugesalona } from 'entities/uslugesalona.entity';
+import { Zaposleni } from 'entities/zaposleni.entity';
 
 @Injectable()
 export class TerminService extends TypeOrmCrudService<Termin>{
-   constructor(@InjectRepository(Termin) private readonly  termin:Repository<Termin> // evidentirati u app modulu
+   constructor(
+       @InjectRepository(Termin)
+        private readonly  termin:Repository<Termin>,// evidentirati u app modulu
+        @InjectRepository(Uslugesalona)
+        private readonly  uslugesalona:Repository<Uslugesalona>,
+        @InjectRepository(Zaposleni)
+        private readonly  zaposleni:Repository<Zaposleni>,
+
    ){
        super(termin);
    }

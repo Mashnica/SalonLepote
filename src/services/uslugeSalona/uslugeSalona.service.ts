@@ -1,3 +1,6 @@
+import { Tretmanlica } from './../../../entities/tretmanlica.entity';
+import { Pedikir } from './../../../entities/pedikir.entity';
+import { Manikir } from './../../../entities/manikir.entity';
 import { Masaza } from './../../../entities/masaza.entity';
 import { ApiResponse } from './../../misc/api.response.class';
 import { Uslugesalona } from './../../../entities/uslugesalona.entity';
@@ -9,8 +12,20 @@ import { AddUslugeSalonaDto } from 'src/dtos/uslugeSalona/add.uslugeSalona.dto';
 
 @Injectable()
 export class UslugeSalonaService extends TypeOrmCrudService<Uslugesalona>{
-   constructor(@InjectRepository(Uslugesalona) private readonly uslugesalona:Repository<Uslugesalona> // evidentirati u app modulu
-   ){
+   constructor(
+       @InjectRepository(Uslugesalona)
+        private readonly uslugesalona:Repository<Uslugesalona>, // evidentirati u app modulu
+        @InjectRepository(Masaza)
+        private readonly masaza:Repository<Masaza>,
+        @InjectRepository(Manikir)
+        private readonly manikir:Repository<Manikir>,
+        @InjectRepository(Pedikir)
+        private readonly pedikir:Repository<Pedikir>,
+        @InjectRepository(Tretmanlica)
+        private readonly tretmanlica:Repository<Tretmanlica>,
+
+       
+       ){
        super(uslugesalona);
    }
 
@@ -33,7 +48,9 @@ export class UslugeSalonaService extends TypeOrmCrudService<Uslugesalona>{
 
      });
 
+
  });
+ 
 
 }
 }

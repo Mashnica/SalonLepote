@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Uslugesalona } from "./uslugesalona.entity";
+import * as Validator from 'class-validator';
 
 @Index("jmbgKlijent", ["jmbgKlijent"], { unique: true })
 @Index("usernameKlijent", ["usernameKlijent"], { unique: true })
@@ -30,9 +31,13 @@ export class Klijent {
   kontaktKlijent: string;
 
   @Column("varchar", { name: "usernameKlijent", unique: true, length: 50 })
+  @Validator.IsNotEmpty()
+    @Validator.IsString()
   usernameKlijent: string;
 
   @Column("varchar", { name: "lozinkaKlijent", length: 50 })
+  @Validator.IsNotEmpty()
+      @Validator.IsHash('sha512')
   lozinkaKlijent: string;
 
   @OneToMany(() => Uslugesalona, (uslugesalona) => uslugesalona.klijent)

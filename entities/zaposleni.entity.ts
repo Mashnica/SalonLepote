@@ -6,6 +6,7 @@ import {
    PrimaryGeneratedColumn,
  } from "typeorm";
  import { Termin } from "./termin.entity";
+ import * as Validator from 'class-validator';
  
  @Index("jmbgZaposlenog", ["jmbgZaposlenog"], { unique: true })
  @Index("korisnickoIme", ["korisnickoIme"], { unique: true })
@@ -42,18 +43,26 @@ import {
    @Column("varchar", { 
      name: "korisnickoIme", 
      unique: true,
-     length: 50 })
+     length: 50 
+    })
+    @Validator.IsNotEmpty()
+    @Validator.IsString()
+   //@Validator.Matches(/^[a-z][a-z0-9\.{3,30}[a-z0-9]]$/) //username odgovara ovom principu
    korisnickoIme: string;
  
    @Column("varchar", {
       name: "lozinka",
       length: 50 })
+      @Validator.IsNotEmpty()
+      @Validator.IsHash('sha512')
    lozinka: string;
  
    @Column("tinyint", { 
      name: "aktivan",
      nullable: true, 
-     width: 1 })
+     width: 1 
+    })
+    
    aktivan: boolean | null;
  
    @OneToMany(() => Termin, (termin) => termin.zaposleni)

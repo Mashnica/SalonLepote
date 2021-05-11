@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Uslugesalona } from "./uslugesalona.entity";
+import * as Validator from 'class-validator';
 
 @Entity("pedikir", { schema: "salon_lepote" })
 export class Pedikir {
@@ -13,6 +14,12 @@ export class Pedikir {
   vremeTrajPedikir: number;
 
   @Column("int", { name: "CenaPedikira" })
+  @Validator.IsEmpty()
+  @Validator.IsNumber({
+    allowInfinity:false,
+    allowNaN: false,
+  })
+  @Validator.IsPositive()
   cenaPedikira: number;
 
   @OneToMany(() => Uslugesalona, (uslugesalona) => uslugesalona.pedikir)

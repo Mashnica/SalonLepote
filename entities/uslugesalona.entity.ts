@@ -14,6 +14,7 @@ import { Manikir } from "./manikir.entity";
 import { Tretmanlica } from "./tretmanlica.entity";
 import { Klijent } from "./klijent.entity";
 import { Racun } from "./racun.entity";
+import * as Validator from 'class-validator';
 
 @Index("klijentID", ["klijentId"], {})
 @Index("manikirID", ["manikirId"], {})
@@ -27,6 +28,9 @@ export class Uslugesalona {
   uslugeSalonaId: number;
 
   @Column("varchar", { name: "VrstaUslugeSalona", length: 30 })
+  @Validator.IsEmpty()
+  @Validator.IsString()
+  @Validator.Length(1,30)
   vrstaUslugeSalona: string;
 
   @Column("int", { name: "VremeTrajanja" })
@@ -34,7 +38,7 @@ export class Uslugesalona {
 
   @Column("tinyint", { name: "dostupnost", nullable: true, width: 1 })
   dostupnost: boolean | null;
-
+  
   @Column("int", { name: "masazaID", nullable: true })
   masazaId: number | null;
 
