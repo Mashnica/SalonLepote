@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { RoleCheckedGuard } from './../../misc/role.checker.quard';
 import { AddManikirDto } from './../../dtos/manikir/add.manikir.dto';
 import { ManikirService } from '../../services/manikir/manikir.service';

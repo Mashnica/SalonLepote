@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 //prilikom editovanja zaposlenog dopustamo da se promeni njegov password
 import * as Validator from 'class-validator';
 

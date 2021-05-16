@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { RoleCheckedGuard } from './../../misc/role.checker.quard';
 import { AddMasazaDto } from './../../dtos/masaza/add.masaza.dto';
 import { MasazaService } from './../../services/masaza/masaza.service';

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { RoleCheckedGuard } from './../../misc/role.checker.quard';
 import { AddTerminDto } from './../../dtos/termin/add.termin.dto';
 import { TerminService } from './../../services/termin/termin.service';

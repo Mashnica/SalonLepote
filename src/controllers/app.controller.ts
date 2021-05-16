@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { ZaposleniService } from '../services/zaposleni/zaposleni.service';
 import { Zaposleni } from '../../entities/zaposleni.entity';
 import { Controller, Get } from '@nestjs/common';

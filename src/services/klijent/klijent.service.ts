@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable prefer-const */
+/* eslint-disable prettier/prettier */
 import { KlijentRegistrationDto } from './../../dtos/klijent/klijent.register.dto';
 import { ApiResponse } from './../../misc/api.response.class';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -64,6 +67,7 @@ export class KlijentService extends TypeOrmCrudService<Klijent>{
        return new Promise ((resolve)=>{
         this.klijent.save(newKlijent)
         .then(data=> resolve(data))
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         .catch(error =>{
             const response:ApiResponse = new ApiResponse("error",-1001);
 

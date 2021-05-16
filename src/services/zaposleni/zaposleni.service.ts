@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable prettier/prettier */
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
 
 import { ApiResponse } from './../../misc/api.response.class';
 import { EditZaposleniDto } from './../../dtos/zaposleni/edit.zaposleni.dto';
@@ -20,9 +25,9 @@ export class ZaposleniService {
      getAll(): Promise<Zaposleni[]>{ //niz zaposleni koji su administratori
         return this.zaposleni.find();
      }
-     async getByUsername(korisnickoIme2:string): Promise<Zaposleni | null> {
+     async getByUsername(korisnickoIme:string): Promise<Zaposleni | null> {
            const admin= await this.zaposleni.findOne({
-               korisnickoIme:korisnickoIme2
+               korisnickoIme:korisnickoIme
            });
 
            if(admin){
@@ -87,12 +92,12 @@ export class ZaposleniService {
 
 
      }
-     /*const crypto =require('crypto');
+     const crypto =require('crypto');
      const lozinka=crypto.createHash('sha512');
      lozinka.update(data.password);
      const passwordHashString= lozinka.digest('hex').toUpperCase();
 
-     zaposleni.lozinka = passwordHashString;*/
+     zaposleni.lozinka = passwordHashString;
 
      return this.zaposleni.save(zaposleni);
 

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { AuthMiddleware } from './middlewares/auth.middleware';
 import { AuthController } from './controllers/api/auth.controller';
 import { TerminController } from './controllers/api/termin.controller';

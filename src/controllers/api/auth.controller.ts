@@ -1,3 +1,7 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-const */
+/* eslint-disable prettier/prettier */
 import { LoginInfoDto } from './../../dtos/auth/login.info.dto';
 import { KlijentService } from './../../services/klijent/klijent.service';
 import { KlijentRegistrationDto } from './../../dtos/klijent/klijent.register.dto';
@@ -25,25 +29,24 @@ export class AuthController{
      //mehanizam logovanja admina zaposlenog
      @Post('zaposleni/login') //http://localhost:300/auth/zaposleni/login/
     async doZaposleniLogin(@Body() data :LoginZaposleniDto,@Req() req: Request): Promise<LoginInfoDto | ApiResponse>{
-
         const admin = await this.zaposleniService.getByUsername(data.korisnickoIme);
-
+        console.log(admin);
         if(!admin){
             return new Promise(resolve=>resolve(new ApiResponse('error',-3001)));//admin ne postoji
             
 
 
         }
-        const lozinka=crypto.createHash('sha512');
+        /*const lozinka=crypto.createHash('sha512');
         lozinka.update(data.password);
         const passwordHashString= lozinka.digest('hex').toUpperCase();
 
-        if(admin.lozinka!== passwordHashString){
+        if(admin.lozinka !== passwordHashString){
             return new Promise(resolve=>resolve(new ApiResponse('error',-3002)));//admin lozinka nije ispravna
 
 
         }
-
+       */
         //zaposleniID
         //korisnickoIme
         //token JWT 

@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { RoleCheckedGuard } from './../../misc/role.checker.quard';
 import { AddKlijentDto } from './../../dtos/klijent/add.klijent.dto';
 import { KlijentService } from './../../services/klijent/klijent.service';

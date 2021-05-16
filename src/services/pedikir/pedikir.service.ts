@@ -1,3 +1,8 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
+/* eslint-disable prefer-const */
+/* eslint-disable prettier/prettier */
 import { ApiResponse } from './../../misc/api.response.class';
 import { AddPedikirDto } from './../../dtos/pedikir/add.pedikir.dto';
 import { Pedikir } from './../../../entities/pedikir.entity';

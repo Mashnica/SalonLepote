@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { RoleCheckedGuard } from './../../misc/role.checker.quard';
 import { AddPedikirDto } from './../../dtos/pedikir/add.pedikir.dto';
 import { PedikirService } from './../../services/pedikir/pedikir.service';

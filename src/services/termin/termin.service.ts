@@ -1,3 +1,8 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
+/* eslint-disable prefer-const */
+/* eslint-disable prettier/prettier */
 import { AddTerminDto } from './../../dtos/termin/add.termin.dto';
 import { ApiResponse } from './../../misc/api.response.class';
 import { Termin } from './../../../entities/termin.entity';

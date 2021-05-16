@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { RoleCheckedGuard } from './../../misc/role.checker.quard';
 import { AddTretmanLicaDto } from './../../dtos/tretmanLica/add.tretmanlica.dto';
 import { TretmanLicaService } from './../../services/tretmanLica/tretmanLica.service';

@@ -1,0 +1,661 @@
+{
+	"info": {
+		"_postman_id": "e1d9ae6a-724e-4270-aeb2-d92c0ca8e05d",
+		"name": "Veb servis salon lepote",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Zaposleni",
+			"item": [
+				{
+					"name": "Get all zaposleni",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/zaposleni/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"zaposleni",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all zaposleni pre autorizacije",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/zaposleni/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"zaposleni",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2171"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"87b-HlRFm2Zj0hGSYs7UU3ssS0P8tmU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 May 2021 19:40:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"zaposleniId\": 1,\n        \"imeZaposlenog\": \"Miroslav\",\n        \"prezimeZaposlenog\": \"Nikolic\",\n        \"jmbgZaposlenog\": \"1906995811234\",\n        \"adresaZaposlenog\": \"Vojvodjanska 23\",\n        \"korisnickoIme\": \"miso12\",\n        \"lozinka\": \"miso12\",\n        \"aktivan\": 1\n    },\n    {\n        \"zaposleniId\": 2,\n        \"imeZaposlenog\": \"Mira\",\n        \"prezimeZaposlenog\": \"Zelic\",\n        \"jmbgZaposlenog\": \"1906995811235\",\n        \"adresaZaposlenog\": \"Djure Salaja 23\",\n        \"korisnickoIme\": \"mira12\",\n        \"lozinka\": \"mira12\",\n        \"aktivan\": 1\n    },\n    {\n        \"zaposleniId\": 3,\n        \"imeZaposlenog\": \"Anika\",\n        \"prezimeZaposlenog\": \"Nikoletic\",\n        \"jmbgZaposlenog\": \"1906995811236\",\n        \"adresaZaposlenog\": \"Safarikova 78\",\n        \"korisnickoIme\": \"anika90\",\n        \"lozinka\": \"anika90\",\n        \"aktivan\": 1\n    },\n    {\n        \"zaposleniId\": 4,\n        \"imeZaposlenog\": \"Nikolina\",\n        \"prezimeZaposlenog\": \"Micanovic\",\n        \"jmbgZaposlenog\": \"1906995811237\",\n        \"adresaZaposlenog\": \"Vojvodjanska 89\",\n        \"korisnickoIme\": \"nina12\",\n        \"lozinka\": \"nina12\",\n        \"aktivan\": 1\n    },\n    {\n        \"zaposleniId\": 5,\n        \"imeZaposlenog\": \"Milica\",\n        \"prezimeZaposlenog\": \"Nikolic\",\n        \"jmbgZaposlenog\": \"1906995811238\",\n        \"adresaZaposlenog\": \"Mose Pijade 3\",\n        \"korisnickoIme\": \"mica12\",\n        \"lozinka\": \"mica12\",\n        \"aktivan\": 1\n    },\n    {\n        \"zaposleniId\": 6,\n        \"imeZaposlenog\": \"Miroslava\",\n        \"prezimeZaposlenog\": \"Tot\",\n        \"jmbgZaposlenog\": \"1906995811239\",\n        \"adresaZaposlenog\": \"Milutinoviceva 34\",\n        \"korisnickoIme\": \"mimi12\",\n        \"lozinka\": \"mimi12\",\n        \"aktivan\": 1\n    },\n    {\n        \"zaposleniId\": 7,\n        \"imeZaposlenog\": \"Vera\",\n        \"prezimeZaposlenog\": \"Korab\",\n        \"jmbgZaposlenog\": \"1806995811239\",\n        \"adresaZaposlenog\": \"Vojvodjanska 93\",\n        \"korisnickoIme\": \"vera12\",\n        \"lozinka\": \"vera12\",\n        \"aktivan\": 1\n    },\n    {\n        \"zaposleniId\": 8,\n        \"imeZaposlenog\": \"Tara\",\n        \"prezimeZaposlenog\": \"Tintor\",\n        \"jmbgZaposlenog\": \"1706995811239\",\n        \"adresaZaposlenog\": \"Milutinoviceva 160\",\n        \"korisnickoIme\": \"tara12\",\n        \"lozinka\": \"tara12\",\n        \"aktivan\": 1\n    },\n    {\n        \"zaposleniId\": 9,\n        \"imeZaposlenog\": \"Nevena\",\n        \"prezimeZaposlenog\": \"Tulic\",\n        \"jmbgZaposlenog\": \"1606995811239\",\n        \"adresaZaposlenog\": \"Vojvode Supljikca 7\",\n        \"korisnickoIme\": \"nena12\",\n        \"lozinka\": \"nena12\",\n        \"aktivan\": 1\n    },\n    {\n        \"zaposleniId\": 10,\n        \"imeZaposlenog\": \"Iva\",\n        \"prezimeZaposlenog\": \"Lukic\",\n        \"jmbgZaposlenog\": \"1506995811239\",\n        \"adresaZaposlenog\": \"M.Tita 134\",\n        \"korisnickoIme\": \"iva12\",\n        \"lozinka\": \"iva12\",\n        \"aktivan\": 1\n    },\n    {\n        \"zaposleniId\": 11,\n        \"imeZaposlenog\": \"Ivana\",\n        \"prezimeZaposlenog\": \"Lukov\",\n        \"jmbgZaposlenog\": \"5506995811239\",\n        \"adresaZaposlenog\": \"M.T 134\",\n        \"korisnickoIme\": \"ivana12\",\n        \"lozinka\": \"ivana12\",\n        \"aktivan\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a single zaposleni",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/zaposleni/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"zaposleni",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a single zaposleni pre autorizacije",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/zaposleni/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"zaposleni",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "202"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ca-yyb6/RDpP5yMl1UVsyasjuoOGv0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 May 2021 19:45:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"zaposleniId\": 4,\n    \"imeZaposlenog\": \"Nikolina\",\n    \"prezimeZaposlenog\": \"Micanovic\",\n    \"jmbgZaposlenog\": \"1906995811237\",\n    \"adresaZaposlenog\": \"Vojvodjanska 89\",\n    \"korisnickoIme\": \"nina12\",\n    \"lozinka\": \"nina12\",\n    \"aktivan\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a new zaposleni",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n  {  \"imeZaposlenog\": \"Nikoa\",\r\n    \"prezimeZaposlenog\": \"Micc\",\r\n    \"jmbgZaposlenog\": \"3906995811237\",\r\n     \"korisnickoIme\": \"admin\",\r\n    \"password\": \"admin\",\r\n    \"zaposleniId\": \"22\",\r\n    \"aktivan\": \"1\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/zaposleni/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"zaposleni",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add zaposleni",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n  {  \"imeZaposlenog\": \"Nikolina\",\r\n    \"prezimeZaposlenog\": \"Micanovic\",\r\n    \"jmbgZaposlenog\": \"3906995811237\",\r\n     \"korisnickoIme\": \"nina19\",\r\n    \"password\": \"nina19\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/zaposleni/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"zaposleni",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c1-kjO9p0fooK7jw1itI02HQdeqapo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 May 2021 19:55:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"imeZaposlenog\": \"Nikolina\",\n    \"prezimeZaposlenog\": \"Micanovic\",\n    \"jmbgZaposlenog\": \"3906995811237\",\n    \"korisnickoIme\": \"nina19\",\n    \"lozinka\": \"nina19\",\n    \"adresaZaposlenog\": null,\n    \"aktivan\": null,\n    \"zaposleniId\": 12\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a new zaposleni Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n  {  \"imeZaposlenog\": \"Nikolina\",\r\n    \"prezimeZaposlenog\": \"Micanovic\",\r\n    \"jmbgZaposlenog\": \"3906995811237\",\r\n     \"korisnickoIme\": \"nina19\",\r\n    \"password\": \"nina19\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/zaposleni/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"zaposleni",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add zaposleni",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n  {  \"imeZaposlenog\": \"Nikolina\",\r\n    \"prezimeZaposlenog\": \"Micanovic\",\r\n    \"jmbgZaposlenog\": \"3906995811237\",\r\n     \"korisnickoIme\": \"nina19\",\r\n    \"password\": \"nina19\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/zaposleni/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"zaposleni",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c1-kjO9p0fooK7jw1itI02HQdeqapo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 May 2021 19:55:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"imeZaposlenog\": \"Nikolina\",\n    \"prezimeZaposlenog\": \"Micanovic\",\n    \"jmbgZaposlenog\": \"3906995811237\",\n    \"korisnickoIme\": \"nina19\",\n    \"lozinka\": \"nina19\",\n    \"adresaZaposlenog\": null,\n    \"aktivan\": null,\n    \"zaposleniId\": 12\n}"
+						}
+					]
+				},
+				{
+					"name": "Test zaposleni sa istim korisnickim Imenom",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \"imeZaposlenog\": \"Nikolina\",\r\n    \"prezimeZaposlenog\": \"Micanovic\",\r\n    \"jmbgZaposlenog\": \"9906995811237\",\r\n     \"korisnickoIme\": \"nina19\",\r\n    \"password\": \"nina19\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/zaposleni/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"zaposleni",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \"imeZaposlenog\": \"Nikolina\",\r\n    \"prezimeZaposlenog\": \"Micanovic\",\r\n    \"jmbgZaposlenog\": \"9906995811237\",\r\n     \"korisnickoIme\": \"nina19\",\r\n    \"password\": \"nina19\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/zaposleni/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"zaposleni",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-t4k/9UI9MQaVcBQ68YkMUdFYBok\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 May 2021 20:16:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1001,\n    \"message\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Zaposleni ID ne postoji",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/zaposleni/670/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"zaposleni",
+								"670",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Zaposleni ID ne postoji",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/zaposleni/670/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"zaposleni",
+										"670",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-TohoSz0THfgyH4V7rCdfcfXcq54\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 May 2021 20:34:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1002,\n    \"message\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "Login Zaposleni",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"korisnickoIme\": \"admin\",\r\n\"password\": \"admin\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/zaposleni/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"zaposleni",
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Token zaposleni",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"korisnickoIme\": \"miso12\",\r\n\"password\": \"miso12\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/zaposleni/login/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"zaposleni",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "274"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"112-wJSV+64nZ655iNwdF3R9NzRNVLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 May 2021 10:45:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"identity\": \"miso12\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ6YXBvc2xlbmlJZCI6MSwiaWRlbnRpdHkiOiJtaXNvMTIiLCJleHQiOjE2MjIxMTIzNTQuNzYyLCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yOC4wIiwiaWF0IjoxNjIwOTAyNzU0fQ.Fw1w7zxT9Z1swiBqITK4CW2ZnhbfQxlLZQr-aMdOSak\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get masaza neuspeno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

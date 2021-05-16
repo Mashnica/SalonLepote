@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import * as Validator from 'class-validator';
 
 export class AddZaposleniDto{
@@ -13,6 +14,8 @@ export class AddZaposleniDto{
     @Validator.IsString()
     @Validator.Length(6,128)
     password:string
+
+    aktivan:boolean
    
 
 

@@ -1,3 +1,8 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
+/* eslint-disable prefer-const */
+/* eslint-disable prettier/prettier */
 import { KlijentService } from './../services/klijent/klijent.service';
 import { jwtSecret } from './../../config/jwt.secret';
 import { JwtDataDto } from '../dtos/auth/jwt.data.dto';
@@ -25,6 +30,7 @@ export class AuthMiddleware implements NestMiddleware{
         }
 
         const token= req.headers.authorization;
+        //console.log(token);
 
         const tokenParts=token.split(' ');
         if(tokenParts.length !=2 ){
@@ -36,7 +42,7 @@ export class AuthMiddleware implements NestMiddleware{
         const tokenString = tokenParts[1]; //drugi u nizu
 
 
-        const jwtData: JwtDataDto= jwt.verify(token,jwtSecret);
+        const jwtData: JwtDataDto= jwt.verify(tokenString,jwtSecret);
 
         if(!jwtData){
             throw new HttpException('Bad token',HttpStatus.UNAUTHORIZED);

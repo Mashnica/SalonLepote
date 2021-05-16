@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { RoleCheckedGuard } from './../../misc/role.checker.quard';
 import { AddUslugeSalonaDto } from 'src/dtos/uslugeSalona/add.uslugeSalona.dto';
 import { Tretmanlica } from './../../../entities/tretmanlica.entity';

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { RoleCheckedGuard } from './../../misc/role.checker.quard';
 import { AddRacunDto } from './../../dtos/racun/add.racun.dto';
 import { RacunService } from './../../services/racun/racun.service';

@@ -1,3 +1,7 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-const */
+/* eslint-disable prettier/prettier */
 import { Tretmanlica } from './../../../entities/tretmanlica.entity';
 import { Pedikir } from './../../../entities/pedikir.entity';
 import { Manikir } from './../../../entities/manikir.entity';
