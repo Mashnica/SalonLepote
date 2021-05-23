@@ -18,8 +18,7 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class ZaposleniService {
      constructor(
-         @InjectRepository(Zaposleni) 
-         private readonly zaposleni: Repository<Zaposleni>,
+         @InjectRepository(Zaposleni) private readonly zaposleni: Repository<Zaposleni>,
      ){ }
     
      getAll(): Promise<Zaposleni[]>{ //niz zaposleni koji su administratori

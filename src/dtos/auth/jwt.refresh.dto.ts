@@ -1,9 +1,5 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prettier/prettier */
-import { type } from "os";
-
-export class JwtDataDto{
+export class JwtRefreshDataDto{
 
     //Proverava da li je  zaposleni ili klijent
     role: "zaposleni"|"klijent"; //enum tipa

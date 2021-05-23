@@ -10,11 +10,15 @@ import { Klijent } from "entities/klijent.entity";
 import { Repository } from "typeorm";
 import { AddKlijentDto } from 'src/dtos/klijent/add.klijent.dto';
 import * as crypto from 'crypto';
+import { KlijentToken } from 'entities/klijent-token.entity';
+import { stringify } from 'querystring';
 
 @Injectable()
 export class KlijentService extends TypeOrmCrudService<Klijent>{
-   constructor(@InjectRepository(Klijent) private readonly klijent:Repository<Klijent> // evidentirati u app modulu
-   ){
+   constructor(
+       @InjectRepository(Klijent) private readonly klijent:Repository<Klijent> ,// evidentirati u app modulu
+       @InjectRepository(KlijentToken) private readonly klijentToken:Repository<KlijentToken>, 
+       ){
        super(klijent);
    }
 
@@ -94,6 +98,50 @@ export class KlijentService extends TypeOrmCrudService<Klijent>{
         return null;
      }
 
+     async addToken(klijentId:number, token:string, expiresAt: string){
+         const klijentToken= new KlijentToken();
+         klijentToken.klijentId=klijentId;
+         klijentToken.token=token;
+         klijentToken.expiresAt=expiresAt;
+
+           return await this.klijentToken.save(klijentToken);
+     }
+    
+     async getKlijentToken (token:string):Promise<KlijentToken> {
+         return await  this.klijentToken.findOne({
+                token: token,
+         });
+
+    }
+    async invalidateToken(token:string):Promise<KlijentToken | ApiResponse>{
+         const  klijentToken= await this.klijentToken.findOne({
+             token:token,
+         });
+
+         if(!klijentToken){
+             return new ApiResponse("error",-10001,"No such refresh token!!");
+        
+            }
+            klijentToken.isValid=0;
+
+            await this.klijentToken.save(klijentToken);
+         
+
+        return await this.getKlijentToken(token);
+    }
+    async invalidateKlijentTokens(klijentId:number):Promise <(KlijentToken | ApiResponse) []> {
+        const klijentTokens = await this.klijentToken.find({
+            klijentId: klijentId,
+        });
+         
+
+        const results= [];
+        for(const klijentToken of klijentTokens){
+
+           results.push(this.invalidateToken(klijentToken.token));
+        }
+        return results;
+    }
 
 
 

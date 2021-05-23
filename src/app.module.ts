@@ -32,6 +32,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './controllers/app.controller';
 import  {DatabaseConfiguration} from 'config/database.configuration'
 import { ZaposleniService } from './services/zaposleni/zaposleni.service';
+import { KlijentToken } from 'entities/klijent-token.entity';
+
 
 
 
@@ -55,7 +57,8 @@ import { ZaposleniService } from './services/zaposleni/zaposleni.service';
         Termin,
         Tretmanlica,
         Uslugesalona,
-        Termin
+        Termin,
+        KlijentToken,
       ] 
     }),
     TypeOrmModule.forFeature([
@@ -67,7 +70,8 @@ import { ZaposleniService } from './services/zaposleni/zaposleni.service';
       Pedikir,
       Tretmanlica,
       Uslugesalona,
-      Termin
+      Termin,
+      KlijentToken
     ])
   ],
   controllers: [
@@ -92,7 +96,8 @@ import { ZaposleniService } from './services/zaposleni/zaposleni.service';
     PedikirService,
     TretmanLicaService,
     UslugeSalonaService,
-    TerminService
+    TerminService,
+    
   ],
   exports:[
     ZaposleniService,

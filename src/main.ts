@@ -6,10 +6,15 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  await app.listen(3000);
-
+ 
 
   app.useGlobalPipes(new ValidationPipe());
+
+  //komunikacija sa api-jem
+  app.enableCors();
+
+  await app.listen(3000);
+
 
  /* app.useStaticAssets(StorageConfig.photo.destination,{
     prefix:StorageConfig.photo.urlPrefix,
