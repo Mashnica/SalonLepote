@@ -53,7 +53,7 @@ export class AuthController{
         //tajni kod sifra json
  
         const jwtData = new JwtDataDto();
-        jwt.role="zaposleni";
+        jwtData.role="zaposleni";
         jwtData.id=admin.zaposleniId;
         jwtData.identity=admin.korisnickoIme;
         let sada=new Date();
@@ -115,7 +115,7 @@ export class AuthController{
         //tajni kod sifra json
  
         const jwtData = new JwtDataDto();
-        jwt.role="klijent";
+        jwtData.role="klijent";
         jwtData.id=klijent.klijentId;
         jwtData.identity=klijent.usernameKlijent;
 
