@@ -58,7 +58,7 @@ export class AuthController{
         //tajni kod sifra json
  
         const jwtData = new JwtDataDto();
-        jwt.role="zaposleni";
+        jwtData.role="zaposleni";
         jwtData.id=admin.zaposleniId;
         jwtData.identity=admin.korisnickoIme;
 
@@ -120,7 +120,7 @@ export class AuthController{
         //tajni kod sifra json
  
         const jwtData = new JwtDataDto();
-        jwt.role="klijent";
+        jwtData.role="klijent";
         jwtData.id=klijent.klijentId;
         jwtData.identity=klijent.usernameKlijent;
         jwtData.exp = this.getDatePlus(60 * 5); //token ne sme da traje vise od 5min

@@ -11,7 +11,7 @@ import { Repository } from "typeorm";
 import { AddKlijentDto } from 'src/dtos/klijent/add.klijent.dto';
 import * as crypto from 'crypto';
 import { KlijentToken } from 'entities/klijent-token.entity';
-import { stringify } from 'querystring';
+
 
 @Injectable()
 export class KlijentService extends TypeOrmCrudService<Klijent>{

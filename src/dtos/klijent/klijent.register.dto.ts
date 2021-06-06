@@ -2,7 +2,7 @@
 import * as Validator from 'class-validator';
 
 export class KlijentRegistrationDto{
-    klijentID :number;
+    //klijentID :number;
     imeKlijent :string;
     prezimeKlijent :string;
     jmbgKlijent :string;
